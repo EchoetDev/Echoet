@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Main_screen" />
+        <activity android:name=".Food_list" />
+        <activity android:name=".Main_Graph" />
+        <activity android:name=".SIgn_in"></activity>
     </application>
 
 </manifest>
