@@ -1,5 +1,6 @@
 package com.example.kmucs.echoet_app;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         fatThread.start();
 
         setEarth(earthGreen);
+
+        Intent intent = new Intent(this, CalendarActivity.class);
+        startActivity(intent);
     }
 
     public void setEarth(int green){
