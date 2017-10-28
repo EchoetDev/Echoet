@@ -43,9 +43,9 @@ public class SelectedFoodListadaptor extends BaseAdapter {
         TextView foodNameTextView = (TextView)view.findViewById(R.id.selected_list_item_food_name_text_view);
         foodNameTextView.setText(item.getFoodName());
         TextView kcalTextView = (TextView)view.findViewById(R.id.selected_list_item_kcal_text_view);
-        kcalTextView.setText(item.getKcal()+"");
+        kcalTextView.setText(item.getKcal()+"kcal");
         TextView co2TextView = (TextView)view.findViewById(R.id.selected_list_item_co2_text_view);
-        co2TextView.setText(item.getCo2()+"");
+        co2TextView.setText(item.getCo2()+"g");
 //        TextView countTextView = (TextView)view.findViewById(R.id.selected_list_item_index_count_view);
 //        countTextView.setText(item.getCount()+"");
 

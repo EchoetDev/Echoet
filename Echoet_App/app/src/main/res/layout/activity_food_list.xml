@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#face"
     tools:context="com.example.kmucs.echoet_app.selected_food_list.AddDailyEatActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center">
         <Button
             android:onClick="clickSelectedFoofButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="256dp"
+            android:layout_height="35dp"
             android:id="@+id/selectFoodBtn"
-            android:text="Select the Foods"/>
+            android:text="Select the Foods"
+            android:background="@drawable/skybox"/>
 
         <ListView
             android:id="@+id/selected-food-list-view"
@@ -26,9 +29,10 @@
         <Button
             android:onClick="clickSendingDbButton"
             android:id="@+id/sendingDbBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="Submit"
+            android:background="@drawable/skybox"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

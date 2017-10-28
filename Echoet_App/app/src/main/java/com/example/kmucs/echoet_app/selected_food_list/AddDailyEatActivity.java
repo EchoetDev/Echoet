@@ -1,5 +1,6 @@
 package com.example.kmucs.echoet_app.selected_food_list;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -26,6 +27,8 @@ import AndroidHttpRequest.HttpRequestorBuilder;
 import AndroidHttpRequest.HttpResponseListener;
 
 public class AddDailyEatActivity extends AppCompatActivity {
+
+    Activity activity = this;
 
     private Button selectFoodBtn; //Food Select Button
 //    final String[] foods = {"Food 1", "Food 2", "Food 3", "Food 4", "Food 5", "Food 6"};
@@ -121,19 +124,20 @@ public class AddDailyEatActivity extends AppCompatActivity {
     public void clickSendingDbButton(View view) {
         HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/daily-eat/add");
         HttpRequestor requestor = builder.build();
-        int year = 1, month = 1, date = 1;
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR), month = cal.get(Calendar.MONTH)+1, date = cal.get(Calendar.DATE);
         try{
             JSONArray jsonArray = new JSONArray();
             for(SelectedFoodListItem each : foods) {
-                Toast.makeText(AddDailyEatActivity.this, each.getFoodName(), Toast.LENGTH_LONG).show();
+
                 JSONObject json = new JSONObject()
                         .put("food_name", each.getFoodName())
 //                        .put("kcal", each.getKcal())
 //                        .put("co2", each.getCo2())
                         .put("user_id", Environment.userId)
-                        .put("year", year)
-                        .put("month", month)
-                        .put("date", date);
+                        .put("year", year+"")
+                        .put("month", month+"")
+                        .put("date", date+"");
                 jsonArray.put(json);
             }
             final JSONObject jsonObject = new JSONObject().put("daily_eats", jsonArray);
@@ -143,6 +147,8 @@ public class AddDailyEatActivity extends AppCompatActivity {
                 @Override
                 protected void httpResponse(String data) {
                     Toast.makeText(AddDailyEatActivity.this, "Submit Success", Toast.LENGTH_LONG).show();
+
+                    activity.finish();
                 }
 
                 @Override
