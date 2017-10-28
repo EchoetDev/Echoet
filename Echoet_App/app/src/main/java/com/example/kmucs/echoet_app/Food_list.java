@@ -47,11 +47,7 @@ public class Food_list extends AppCompatActivity {
         final String[] foodName = new String[foods.size()];
 
         int i=0;
-        for(SelectedFoodListItem each : foods) {
-            foodName[i++] = each.getFoodName();
-            Toast.makeText(Food_list.this, foodName[i-1], Toast.LENGTH_LONG).show();
-        }
-        Toast.makeText(Food_list.this, "size = "+i, Toast.LENGTH_LONG).show();
+        for(SelectedFoodListItem each : foods) foodName[i++] = each.getFoodName();
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(Food_list.this);
         dialog.setTitle("Select the foods")
@@ -116,8 +112,5 @@ public class Food_list extends AppCompatActivity {
                 Log.e("Error", e.getMessage(), e.fillInStackTrace());
             }
         });
-
-
-
     }
 }
