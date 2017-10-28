@@ -13,10 +13,8 @@ It's contains fun animation, calories & carbon reduction graph, monthly sroceboa
 ![ecoet_ui.png](https://github.com/EchoetDev/Echoet/blob/master/images/ecoet_ui.PNG)
 
 ## Used Library
-1. library name
-    * Purpose & Reasons.
-2. library name
-    * Purpose & Reasons.
+1. ![SQLArchemy](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiI-_S-85LXAhVTQLwKHQqqBlYQFgglMAA&url=https%3A%2F%2Fwww.sqlalchemy.org%2F&usg=AOvVaw1YVU1l48U3n9LPgbq5UCnK)
+    * Used in Flask DB communication.
 
 ## Demo Video (if possible)
 [![demo_video_thumbnail](https://github.com/EchoetDev/Echoet/blob/master/images/demo_video_thumbnail.png)](https://www.youtube.com/watch?v=MMy58PggP9Y)
