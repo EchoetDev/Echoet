@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,13 +106,17 @@ public class EarthFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        rotateEarth();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        rotateEarth();
     }
 
     @Override
@@ -165,6 +171,7 @@ public class EarthFragment extends Fragment {
         imageFat.setScaleY(1.0f - 0.1f * (5 - fatSize));
 
         EarthThread earthThreadhread = new EarthThread();
+
         earthThreadhread.setDaemon(true);
         earthThreadhread.start();
 

@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements GraphFragment.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        Log.e("Error", "1");
         swipe = new Swipe();
         swipe.setListener(new SwipeListener() {
             @Override
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements GraphFragment.OnF
 
             @Override
             public void onSwipingRight(MotionEvent event) {
-                Log.e("Error", "3");
 
             }
 
@@ -70,25 +68,21 @@ public class MainActivity extends AppCompatActivity implements GraphFragment.OnF
 
             @Override
             public void onSwipingUp(MotionEvent event) {
-                Log.e("Error", "5");
 
             }
 
             @Override
             public void onSwipedUp(MotionEvent event) {
-                Log.e("Error", "6");
 
             }
 
             @Override
             public void onSwipingDown(MotionEvent event) {
-                Log.e("Error", "7");
 
             }
 
             @Override
             public void onSwipedDown(MotionEvent event) {
-                Log.e("Error", "8");
 
             }
 
