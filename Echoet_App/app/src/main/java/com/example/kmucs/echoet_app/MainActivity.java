@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         setEarth(earthGreen);
 
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, HistoryActivity.class);
         startActivity(intent);
     }
 
