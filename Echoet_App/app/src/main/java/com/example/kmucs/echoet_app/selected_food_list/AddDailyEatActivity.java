@@ -15,6 +15,8 @@ import com.example.kmucs.echoet_app.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -27,7 +29,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
 
     private Button selectFoodBtn; //Food Select Button
 //    final String[] foods = {"Food 1", "Food 2", "Food 3", "Food 4", "Food 5", "Food 6"};
-//    final List<SelectedFoodListItem> foods = new LinkedList<>();
+    final List<SelectedFoodListItem> foods = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +89,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
     }
 
     public void clickSelectedFoofButton(View view) {
-        final List<SelectedFoodListItem> foods = new LinkedList<>();
+        foods.clear();
         HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/food");
         HttpRequestor requestor = builder.build();
         requestor.get(new HttpResponseListener() {
@@ -114,5 +116,43 @@ public class AddDailyEatActivity extends AppCompatActivity {
                 Log.e("Error", e.getMessage(), e.fillInStackTrace());
             }
         });
+    }
+
+    public void clickSendingDbButton(View view) {
+        HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/daily-eat/add");
+        HttpRequestor requestor = builder.build();
+        int year = 1, month = 1, date = 1;
+        try{
+            JSONArray jsonArray = new JSONArray();
+            for(SelectedFoodListItem each : foods) {
+                Toast.makeText(AddDailyEatActivity.this, each.getFoodName(), Toast.LENGTH_LONG).show();
+                JSONObject json = new JSONObject()
+                        .put("food_name", each.getFoodName())
+//                        .put("kcal", each.getKcal())
+//                        .put("co2", each.getCo2())
+                        .put("user_id", Environment.userId)
+                        .put("year", year)
+                        .put("month", month)
+                        .put("date", date);
+                jsonArray.put(json);
+            }
+            final JSONObject jsonObject = new JSONObject().put("daily_eats", jsonArray);
+            Log.e("Error", jsonObject.toString());
+
+            requestor.post(jsonObject, new HttpResponseListener() {
+                @Override
+                protected void httpResponse(String data) {
+                    Toast.makeText(AddDailyEatActivity.this, "Submit Success", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected void httpExcepted(Exception e) {
+                    Log.e("Error", e.getMessage(), e.fillInStackTrace());
+                }
+            });
+        }
+        catch(Exception e){
+            Log.e("Error", e.getMessage(), e.fillInStackTrace());
+        }
     }
 }

@@ -24,10 +24,11 @@
             android:layout_margin="10dp"
             ></ListView>
         <Button
+            android:onClick="clickSendingDbButton"
             android:id="@+id/sendingDbBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sending DB" />
+            android:text="Submit" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
