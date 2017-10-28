@@ -22,8 +22,8 @@ It's contains fun animation, calories & carbon reduction graph, monthly sroceboa
 [![demo_video_thumbnail](https://github.com/EchoetDev/Echoet/blob/master/images/demo_video_thumbnail.png)](https://www.youtube.com/watch?v=MMy58PggP9Y)
 
 ## Developers
-* Name_or_ID(Leader, AndroidApp)
-* Name_or_ID(Backend)
-* Name_or_ID(Frontend)
-* Name_or_ID(AndroidApp)
-* Name_or_ID(AndroidApp)
+* ![JungInkyo](https://github.com/JungInkyo) (Leader, AndroidApp)
+* ![acoustically](https://github.com/acoustically) (Backend)
+* ![rkdxogml5768](https://github.com/rkdxogml5768) (Frontend)
+* ![eddy1002](https://github.com/eddy1002) (AndroidApp)
+* ![occidere](https://github.com/occidere) (AndroidApp)
