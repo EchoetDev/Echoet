@@ -23,5 +23,6 @@
         <activity android:name=".HistoryActivity"/>
 
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
+>>>>>>> 716ce59814ff13ce6627e464fbe6846971b0248b
