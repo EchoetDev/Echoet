@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kmucs.echoet_app.EarthFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/imageEarth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="0"
+            android:scaleX="1.65"
+            android:scaleY="1.65"
+            android:src="@drawable/earth001" />
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/imageFat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="130dp"
+            android:rotation="0"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:transformPivotX="64dp"
+            android:transformPivotY="128dp"
+            android:src="@drawable/fat001" />
+    </FrameLayout>
+</LinearLayout>

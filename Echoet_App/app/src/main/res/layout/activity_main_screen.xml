@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.kmucs.echoet_app.Main_screen">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/earth-screen-layout"
+                android:layout_width="300dp"
+                android:layout_height="300dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendar BTN"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="494dp" />
+            </FrameLayout>
+            <LinearLayout
+                android:layout_marginTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:onClick="clickCalendarButton"
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calendar BTN" />
 
-    <Button
-        android:id="@+id/food_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Food"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="494dp" />
+                <Button
+                    android:onClick="clickAddButton"
+                    android:id="@+id/food_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add" />
+
+                <Button
+                    android:onClick="clickFragmentTestButton"
+                    android:id="@+id/frg_practice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 
 

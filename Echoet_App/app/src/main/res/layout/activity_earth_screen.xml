@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kmucs.echoet_app.MainActivity">
+    tools:context="com.example.kmucs.echoet_app.Earth_screen">
 
-
-
-
-
-
-
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="236dp" />
 </android.support.constraint.ConstraintLayout>

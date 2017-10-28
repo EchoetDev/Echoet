@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main_screen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main_screen" />
+        <activity android:name=".MainActivity"/>
         <activity android:name=".Food_list" />
-        <activity android:name=".Main_Graph" />
-        <activity android:name=".SIgn_in"></activity>
+        <!--<activity android:name=".Main_Graph" />-->
+        <activity android:name=".SIgn_in" >
+        <!--<activity android:name=".Earth_screen">--></activity>
     </application>
 
 </manifest>
