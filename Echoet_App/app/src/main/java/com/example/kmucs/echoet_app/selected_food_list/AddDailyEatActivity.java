@@ -27,7 +27,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
 
     private Button selectFoodBtn; //Food Select Button
 //    final String[] foods = {"Food 1", "Food 2", "Food 3", "Food 4", "Food 5", "Food 6"};
-//    final List<SelectedFoodListItem> foods = new LinkedList<>();
+    final List<SelectedFoodListItem> foods = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
     }
 
     public void clickSelectedFoofButton(View view) {
-        final List<SelectedFoodListItem> foods = new LinkedList<>();
+        foods.clear();
         HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/food");
         HttpRequestor requestor = builder.build();
         requestor.get(new HttpResponseListener() {
@@ -114,5 +114,37 @@ public class AddDailyEatActivity extends AppCompatActivity {
                 Log.e("Error", e.getMessage(), e.fillInStackTrace());
             }
         });
+    }
+
+    public void clickSendingDbButton(View view) {
+        HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/daily-eat/add/");
+        HttpRequestor requestor = builder.build();
+        try{
+            for(SelectedFoodListItem each : foods){
+                Toast.makeText(AddDailyEatActivity.this, each.getFoodName(), Toast.LENGTH_LONG).show();
+                JSONObject name = new JSONObject().put("name", each.getFoodName());
+                JSONObject kcal = new JSONObject().put("kcal", each.getKcal());
+                JSONObject co2 = new JSONObject().put("co2", each.getCo2());
+                JSONArray jsonArray = new JSONArray();
+                jsonArray.put(0, name); jsonArray.put(1, kcal); jsonArray.put(2, co2);
+                final JSONObject jsonObject = new JSONObject().put("foods", jsonArray);
+ //               Log.e("Error", jsonObject.toString());
+
+                requestor.post(jsonObject, new HttpResponseListener() {
+                    @Override
+                    protected void httpResponse(String data) {
+                        Toast.makeText(AddDailyEatActivity.this, "Submit Success", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected void httpExcepted(Exception e) {
+                        Log.e("Error", e.getMessage(), e.fillInStackTrace());
+                    }
+                });
+            }
+        }
+        catch(Exception e){
+            Log.e("Error", e.getMessage(), e.fillInStackTrace());
+        }
     }
 }
