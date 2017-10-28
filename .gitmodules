@@ -1,0 +1,3 @@
+[submodule "Echoet_App/app/src/androidTest/java/AndroidHttpRequest"]
+	path = Echoet_App/app/src/androidTest/java/AndroidHttpRequest
+	url = http://github.com/acoustically/AndroidHttpRequest
