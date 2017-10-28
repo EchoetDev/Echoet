@@ -15,7 +15,7 @@
             android:id="@+id/textDateView"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:text="2017년 10월 28일"
+            android:text="10-28-2017"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -41,7 +41,7 @@
                 android:id="@+id/textSaveView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="열량 : 0kcal  나무 : 0그루"
+                android:text="loose kcal : 0kcal\nsave tree : 0"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />

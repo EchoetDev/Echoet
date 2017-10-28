@@ -12,6 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.json.JSONObject;
+
+import AndroidHttpRequest.Environment;
+import AndroidHttpRequest.HttpRequestor;
+import AndroidHttpRequest.HttpRequestorBuilder;
+import AndroidHttpRequest.HttpResponseListener;
 
 
 /**
@@ -25,10 +33,14 @@ import android.widget.ImageView;
 public class EarthFragment extends Fragment {
     float rotateEarth = 0.0f;
     int fatNum = 0;
-    int fatSize = 5;
-    int earthGreen = 3;
+    int fatSize = 0;
+    int earthGreen = 1;
     ImageView imageEarth;
     ImageView imageFat;
+
+    TextView textTreeT;
+    TextView textFatT;
+
     Handler earthHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -112,6 +124,11 @@ public class EarthFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rotateEarth();
+
+        textTreeT = (TextView) getView().findViewById(R.id.textTree);
+        textFatT = (TextView) getView().findViewById(R.id.textFat);
+
+        getTotalData();
     }
 
     @Override
@@ -167,8 +184,9 @@ public class EarthFragment extends Fragment {
     public void rotateEarth() {
         imageEarth = (ImageView) getView().findViewById(R.id.imageEarth);
         imageFat = (ImageView) getView().findViewById(R.id.imageFat);
-        imageFat.setScaleX(1.0f - 0.1f * (5 - fatSize));
-        imageFat.setScaleY(1.0f - 0.1f * (5 - fatSize));
+
+        imageFat.setScaleX(1.0f - 0.1f * fatSize);
+        imageFat.setScaleY(1.0f - 0.1f * fatSize);
 
         EarthThread earthThreadhread = new EarthThread();
 
@@ -229,5 +247,43 @@ public class EarthFragment extends Fragment {
                 }
             } // end while
         } // end run()
+    }
+
+    private void getTotalData() {
+        HttpRequestorBuilder builder = new HttpRequestorBuilder(Environment.serverUrl + "/daily-eat/total/" + Environment.userId);
+        HttpRequestor requestor = builder.build();
+        requestor.get(new HttpResponseListener() {
+            @Override
+            protected void httpResponse(String data) {
+                try {
+                    JSONObject json = new JSONObject(data);
+                    int totalTree = json.getInt("total_tree");
+                    int totalKcal = json.getInt("total_kcal");
+                    int totalCount = json.getInt("size");
+
+                    totalTree = Math.max(8000 * totalCount - totalTree, 0);
+                    totalKcal = Math.max(2400 * totalCount - totalKcal, 0);
+                    totalKcal = Math.min(totalKcal, 30000);
+
+                    textFatT.setText(totalKcal + "kcal");
+                    textTreeT.setText(totalTree + "");
+
+                    earthGreen = Math.max(totalTree / 80000, 1);
+                    fatSize = totalKcal / 5000;
+
+                    setEarth(earthGreen);
+
+                    imageFat.setScaleX(1.0f - 0.1f * fatSize);
+                    imageFat.setScaleY(1.0f - 0.1f * fatSize);
+                 } catch (Exception e) {
+                    Log.e("Error", e.getMessage(), e.fillInStackTrace());
+                }
+            }
+
+            @Override
+            protected void httpExcepted(Exception e) {
+
+            }
+        });
     }
 }

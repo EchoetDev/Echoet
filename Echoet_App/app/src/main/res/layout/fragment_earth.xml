@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
             android:layout_marginTop="21dp"
-            android:text="0그루"
+            android:text="-"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
             android:layout_marginTop="56dp"
-            android:text="0kcal"
+            android:text="-"
             android:textColor="@android:color/white" />
     </FrameLayout>
     <FrameLayout
