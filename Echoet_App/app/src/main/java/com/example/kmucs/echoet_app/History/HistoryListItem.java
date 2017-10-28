@@ -1,4 +1,4 @@
-package com.example.kmucs.echoet_app;
+package com.example.kmucs.echoet_app.History;
 
 import android.graphics.drawable.Drawable;
 

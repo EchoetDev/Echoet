@@ -1,4 +1,4 @@
-package com.example.kmucs.echoet_app;
+package com.example.kmucs.echoet_app.calendar;
 
 import android.graphics.Color;
 import android.text.style.ForegroundColorSpan;

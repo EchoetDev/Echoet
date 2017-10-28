@@ -1,13 +1,12 @@
-package com.example.kmucs.echoet_app;
+package com.example.kmucs.echoet_app.History;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.kmucs.echoet_app.R;
 
 public class HistoryActivity extends AppCompatActivity {
     int year, month, day;

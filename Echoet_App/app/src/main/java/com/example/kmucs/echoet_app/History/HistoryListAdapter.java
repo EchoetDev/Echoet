@@ -1,4 +1,4 @@
-package com.example.kmucs.echoet_app;
+package com.example.kmucs.echoet_app.History;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.kmucs.echoet_app.R;
 
 import java.util.ArrayList;
 

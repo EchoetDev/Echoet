@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.kmucs.echoet_app.Food_list">
+    tools:context="com.example.kmucs.echoet_app.selected_food_list.AddDailyEatActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

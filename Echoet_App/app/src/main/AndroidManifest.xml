@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Main_screen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Food_list" />
-        <activity android:name=".SIgn_in" >
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".HistoryActivity"/>
+        <activity android:name=".MainActivity">
+          <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+        <activity android:name=".selected_food_list.AddDailyEatActivity" />
+        <activity android:name=".calendar.CalendarActivity"/>
+        <activity android:name=".History.HistoryActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
->>>>>>> 716ce59814ff13ce6627e464fbe6846971b0248b

@@ -1,4 +1,4 @@
-package com.example.kmucs.echoet_app;
+package com.example.kmucs.echoet_app.selected_food_list;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.kmucs.echoet_app.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,7 +23,7 @@ import AndroidHttpRequest.HttpRequestor;
 import AndroidHttpRequest.HttpRequestorBuilder;
 import AndroidHttpRequest.HttpResponseListener;
 
-public class Food_list extends AppCompatActivity {
+public class AddDailyEatActivity extends AppCompatActivity {
 
     private Button selectFoodBtn; //Food Select Button
 //    final String[] foods = {"Food 1", "Food 2", "Food 3", "Food 4", "Food 5", "Food 6"};
@@ -49,7 +51,7 @@ public class Food_list extends AppCompatActivity {
         int i=0;
         for(SelectedFoodListItem each : foods) foodName[i++] = each.getFoodName();
 
-        AlertDialog.Builder dialog = new AlertDialog.Builder(Food_list.this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(AddDailyEatActivity.this);
         dialog.setTitle("Select the foods")
                 .setMultiChoiceItems(foodName,
                         new boolean[foods.size()],
@@ -64,7 +66,7 @@ public class Food_list extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         if(selectedFoods.size() == 0) {
-                            Toast.makeText(Food_list.this, "Nothing selected", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddDailyEatActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
                         } else{
                             SelectedFoodListadaptor adaptor = new SelectedFoodListadaptor();
                             ListView listview = (ListView) findViewById(R.id.selected_food_list_view);
