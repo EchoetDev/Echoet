@@ -33,6 +33,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
     private Button selectFoodBtn; //Food Select Button
 //    final String[] foods = {"Food 1", "Food 2", "Food 3", "Food 4", "Food 5", "Food 6"};
     final List<SelectedFoodListItem> foods = new LinkedList<>();
+    List<SelectedFoodListItem> selected = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,10 @@ public class AddDailyEatActivity extends AppCompatActivity {
         final String[] foodName = new String[foods.size()];
 
         int i=0;
-        for(SelectedFoodListItem each : foods) foodName[i++] = each.getFoodName();
+        for(SelectedFoodListItem each : foods){
+            foodName[i++] = each.getFoodName();
+            Log.e("Error", foodName[i - 1]);
+        }
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(AddDailyEatActivity.this);
         dialog.setTitle("Select the foods")
@@ -78,6 +82,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
                             listview.setAdapter(adaptor);
                             for(SelectedFoodListItem each : selectedFoods){
                                 adaptor.addItem(each);
+                                Log.e("Error", each.foodName);
                             }
                         }
                     }
@@ -108,7 +113,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
                         int co2 = jsonRow.getInt("co2");
                         foods.add(new SelectedFoodListItem(food, kcal, co2));
                     }
-                    selectFood(foods);
+                    selected = selectFood(foods);
                 } catch (Exception e) {
                     Log.e("Error", e.getMessage(), e.fillInStackTrace());
                 }
@@ -128,7 +133,7 @@ public class AddDailyEatActivity extends AppCompatActivity {
         int year = cal.get(Calendar.YEAR), month = cal.get(Calendar.MONTH)+1, date = cal.get(Calendar.DATE);
         try{
             JSONArray jsonArray = new JSONArray();
-            for(SelectedFoodListItem each : foods) {
+            for(SelectedFoodListItem each : selected) {
 
                 JSONObject json = new JSONObject()
                         .put("food_name", each.getFoodName())
