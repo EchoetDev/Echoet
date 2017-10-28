@@ -7,12 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class HistoryActivity extends AppCompatActivity {
+    int year, month, day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        year = getIntent().getIntExtra("year", 2017);
+        month = getIntent().getIntExtra("month", 10) + 1;
+        day = getIntent().getIntExtra("day", 28);
+
+        TextView textDateView = (TextView) findViewById(R.id.textDateView);
+
+        textDateView.setText(year + "년 " + month + "월 " + day + "일");
 
         addFood("햄버거", 100, 10, 1);
     }
