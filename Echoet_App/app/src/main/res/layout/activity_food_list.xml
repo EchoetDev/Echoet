@@ -4,14 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.kmucs.echoet_app.Food_list">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:onClick="clickSelectedFoofButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/selectFoodBtn"
+            android:text="Select the Foods"/>
 
+        <ListView
+            android:id="@+id/selected-food-list-view"
+            android:layout_width="match_parent"
+            android:layout_height="455dp"
+            android:layout_margin="10dp"
+            ></ListView>
+        <Button
+            android:id="@+id/sendingDbBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sending DB" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sending DB"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="488dp" />
 </android.support.constraint.ConstraintLayout>
