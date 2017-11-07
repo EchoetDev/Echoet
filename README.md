@@ -18,7 +18,7 @@ It's contains fun animation, calories & carbon reduction graph, monthly sroceboa
     * Used in Flask DB communication.
 
 ## Demo Video
-[![demo_video_thumbnail](https://github.com/EchoetDev/Echoet/blob/master/images/demo_video_thumbnail.png)](https://www.youtube.com/watch?v=MMy58PggP9Y)
+[![demo_video_thumbnail](https://github.com/EchoetDev/Echoet/blob/master/images/demo_video_thumbnail.png)](https://youtu.be/3RQ0Ubds9KU)
 
 ## Developers
 * ![JungInkyo](https://github.com/JungInkyo) (Leader, AndroidApp)
